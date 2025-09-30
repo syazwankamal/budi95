@@ -187,7 +187,7 @@
       const resultDiv = document.getElementById("result");
       resultDiv.style.display = "block";
       resultDiv.innerHTML = `
-        <p><strong>Amount entered:</strong> RM${amount.toFixed(2)}</p>
+        <p><strong>Amount entered:</strong> RM${amount.toFixed(3)}</p>
         <p><strong>Litres received (at RM${subsidisedPrice.toFixed(2)}):</strong> ${litres.toFixed(2)} L</p>
         <p><strong>Real cost shown at pump (at RM${marketPrice.toFixed(2)}):</strong> RM${realCost.toFixed(2)}</p>
       `;
@@ -195,3 +195,4 @@
   </script>
 </body>
 </html>
+
