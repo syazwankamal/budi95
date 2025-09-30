@@ -149,6 +149,28 @@
       content.style.display = content.style.display === "block" ? "none" : "block";
     });
 
+    // Load saved prices from localStorage
+    window.addEventListener("load", () => {
+      const savedSubsidised = localStorage.getItem("subsidisedPrice");
+      const savedMarket = localStorage.getItem("marketPrice");
+
+      if (savedSubsidised) {
+        document.getElementById("subsidisedPrice").value = savedSubsidised;
+      }
+      if (savedMarket) {
+        document.getElementById("marketPrice").value = savedMarket;
+      }
+    });
+
+    // Save prices when user changes them
+    document.getElementById("subsidisedPrice").addEventListener("input", function() {
+      localStorage.setItem("subsidisedPrice", this.value);
+    });
+
+    document.getElementById("marketPrice").addEventListener("input", function() {
+      localStorage.setItem("marketPrice", this.value);
+    });
+
     // Calculator logic
     document.getElementById("calcForm").addEventListener("submit", function(e) {
       e.preventDefault();
