@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budi95 Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: #0066cc;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #004d99;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #eaf3ff;
+    }
+
+    .result p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* Collapsible */
+    .collapsible {
+      background-color: #0066cc;
+      color: white;
+      cursor: pointer;
+      padding: 12px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      border-radius: 8px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .collapsible:hover {
+      background-color: #004d99;
+    }
+
+    .content {
+      padding: 0 15px;
+      display: none;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Budi95 Calculator</h1>
+  </header>
+
+  <div class="container">
+    <!-- Collapsible Price Settings -->
+    <button type="button" class="collapsible">⚙️ Set Prices</button>
+    <div class="content">
+      <form id="priceForm">
+        <label for="subsidisedPrice">Subsidised price (RM/L):</label>
+        <input type="number" id="subsidisedPrice" step="0.01" value="1.99" required>
+
+        <label for="marketPrice">Market price (RM/L):</label>
+        <input type="number" id="marketPrice" step="0.01" value="2.60" required>
+      </form>
+    </div>
+
+    <!-- Calculator -->
+    <form id="calcForm">
+      <label for="amount">Enter amount (RM):</label>
+      <input type="number" id="amount" step="0.01" required placeholder="e.g. 50.00">
+      <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result" class="result" style="display:none;"></div>
+  </div>
+
+  <footer>
+    &copy; 2025 Budi95 Calculator
+  </footer>
+
+  <script>
+    // Collapsible toggle
+    document.querySelector(".collapsible").addEventListener("click", function() {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+
+    // Calculator logic
+    document.getElementById("calcForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const amount = parseFloat(document.getElementById("amount").value);
+      const subsidisedPrice = parseFloat(document.getElementById("subsidisedPrice").value);
+      const marketPrice = parseFloat(document.getElementById("marketPrice").value);
+
+      if (isNaN(amount) || amount <= 0) return;
+
+      const litres = amount / subsidisedPrice;
+      const realCost = litres * marketPrice;
+
+      const resultDiv = document.getElementById("result");
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = `
+        <p><strong>Amount entered:</strong> RM${amount.toFixed(2)}</p>
+        <p><strong>Litres received (at RM${subsidisedPrice.toFixed(2)}):</strong> ${litres.toFixed(2)} L</p>
+        <p><strong>Real cost shown at pump (at RM${marketPrice.toFixed(2)}):</strong> RM${realCost.toFixed(2)}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
