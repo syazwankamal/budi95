@@ -7,6 +7,32 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
+.referral-code {
+  font-size: 16px;
+  font-weight: bold;
+  color: #003366;
+  padding: 12px;
+  border: 1px dashed #003366;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background: #f5f9ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.copy-btn:hover {
+  transform: scale(1.2);
+}
 
 .referral-card h3 {
   font-size: 20px;
