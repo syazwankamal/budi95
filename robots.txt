@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://syazwankamal.github.io/budi95/sitemap.xml
