@@ -1,57 +1,48 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f9fafc;
-  margin: 0;
-  padding: 0;
-}
-
-.referral-tile {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px;
-  border: 1px solid #e0e0e0;
+.referral-card {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
 
-.referral-tile h3 {
-  margin: 0 0 12px;
-  font-size: 18px;
+.referral-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
   color: #003366;
 }
 
-.referral-tile p {
-  margin: 0 0 16px;
+.referral-card p {
   font-size: 14px;
-  line-height: 1.5;
   color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-.referral-tile .referral-code {
-  margin: 12px 0;
-  padding: 10px;
+.referral-card .referral-code {
+  font-size: 16px;
+  font-weight: bold;
+  color: #003366;
+  padding: 12px;
   border: 1px dashed #003366;
   border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
-  color: #003366;
+  margin-bottom: 20px;
   background: #f5f9ff;
 }
 
-.referral-tile a {
+.referral-card .referral-btn {
   display: inline-block;
-  margin-top: 12px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
+  padding: 12px 24px;
+  background: #0066cc;
   color: #fff;
-  background: #003366;
-  border-radius: 6px;
+  font-weight: bold;
   text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
 
-.referral-tile a:hover {
-  background: #0055aa;
+.referral-card .referral-btn:hover {
+  background: #004c99;
 }
