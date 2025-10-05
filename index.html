@@ -170,6 +170,24 @@
   <a href="https://www.setel.com/ref/erae" target="_blank" class="referral-btn">Sign Up on Setel</a>
 </div>
 
+<!-- Referral Card -->
+<div class="referral-card">
+  <h3>Save More with Setel</h3>
+  <p>
+    Buy <strong>RON95 @ RM1.99/L</strong> with <strong>Setel</strong>. 
+    Sign up with my referral code and we’ll both earn <strong>RM3</strong> 
+    after you spend RM30 on fuel or at Kedai Mesra.
+  </p>
+  
+  <div class="referral-code">
+    Referral Code: <span id="ref-code">erae</span>
+    <button id="copy-btn" class="copy-btn" title="Copy">📋</button>
+  </div>
+  
+  <a href="https://www.setel.com/ref/erae" target="_blank" class="referral-btn">
+    Sign Up on Setel
+  </a>
+</div>
 
 
 
@@ -232,8 +250,24 @@
       `;
     });
   </script>
+<!-- JavaScript -->
+<script>
+  const copyBtn = document.getElementById("copy-btn");
+  const refCode = document.getElementById("ref-code");
+
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(refCode.textContent)
+      .then(() => {
+        copyBtn.textContent = "✅"; // tukar icon jadi check
+        setTimeout(() => copyBtn.textContent = "📋", 1500); // tukar balik ke icon asal
+      })
+      .catch(err => console.error("Failed to copy: ", err));
+  });
+</script>
+  
 </body>
 </html>
+
 
 
 
