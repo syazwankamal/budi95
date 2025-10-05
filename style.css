@@ -1,3 +1,4 @@
+<style>
 .referral-card {
   max-width: 500px;
   margin: 30px auto;
@@ -7,6 +8,20 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
+
+.referral-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #003366;
+}
+
+.referral-card p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
 .referral-code {
   font-size: 16px;
   font-weight: bold;
@@ -26,39 +41,17 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 18px;
-  transition: transform 0.2s;
+  padding: 4px;
+  color: #003366;
+  transition: transform 0.2s, color 0.2s;
 }
 
 .copy-btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
+  color: #0066cc;
 }
 
-.referral-card h3 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #003366;
-}
-
-.referral-card p {
-  font-size: 14px;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.referral-card .referral-code {
-  font-size: 16px;
-  font-weight: bold;
-  color: #003366;
-  padding: 12px;
-  border: 1px dashed #003366;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  background: #f5f9ff;
-}
-
-.referral-card .referral-btn {
+.referral-btn {
   display: inline-block;
   padding: 12px 24px;
   background: #0066cc;
@@ -69,6 +62,7 @@
   transition: background 0.3s;
 }
 
-.referral-card .referral-btn:hover {
+.referral-btn:hover {
   background: #004c99;
 }
+</style>
