@@ -26,28 +26,25 @@
   font-size: 16px;
   font-weight: bold;
   color: #003366;
-  padding: 12px;
+  padding: 10px;
   border: 1px dashed #003366;
   border-radius: 8px;
   margin-bottom: 20px;
   background: #f5f9ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+  display: inline-block;
 }
 
-.copy-btn {
-  background: none;
-  border: none;
+.copy-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
   cursor: pointer;
-  padding: 4px;
   color: #003366;
   transition: transform 0.2s, color 0.2s;
 }
 
-.copy-btn:hover {
-  transform: scale(1.15);
+.copy-icon:hover {
+  transform: scale(1.2);
   color: #0066cc;
 }
 
