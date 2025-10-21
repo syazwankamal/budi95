@@ -322,6 +322,42 @@
       }
     }
     updateMarketPrice();
+<script>
+  async function getFuelUpdateDate() {
+    const dateElement = document.createElement("p");
+    dateElement.style.textAlign = "center";
+    dateElement.style.marginTop = "10px";
+    dateElement.style.color = "#555";
+    dateElement.textContent = "Memuatkan tarikh kemas kini...";
+    document.querySelector(".result").after(dateElement);
+
+    try {
+      const response = await fetch("https://api.data.gov.my/fuel/price");
+      const data = await response.json();
+
+      if (data && data.length > 0) {
+        const latest = data[0];
+        const updateDate = new Date(latest.date).toLocaleDateString("ms-MY", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        });
+        dateElement.textContent = `Tarikh kemas kini harga minyak: ${updateDate}`;
+      } else {
+        dateElement.textContent = "Tidak dapat memuatkan tarikh kemas kini.";
+      }
+    } catch (error) {
+      console.error("Ralat memuatkan data:", error);
+      dateElement.textContent = "Ralat semasa memuatkan tarikh kemas kini.";
+    }
+  }
+
+  getFuelUpdateDate();
+</script>
+
+    
   </script>
 </body>
 </html>
+
