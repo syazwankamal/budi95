@@ -302,7 +302,7 @@
     // Fetch latest RON95 price from API
     async function updateMarketPrice() {
       try {
-        const res = await fetch("https://api.data.gov.my/fuelprice");
+        const res = await fetch("https://api.data.gov.my/data-catalogue/?id=fuelprice");
         const data = await res.json();
         const ron95 = data.find(item => item.fuel_type === "RON95");
         if (ron95 && ron95.price) {
@@ -335,7 +335,7 @@
     document.querySelector(".result").after(dateElement);
 
     try {
-      const response = await fetch("https://api.data.gov.my/fuel/price");
+      const response = await fetch("https://api.data.gov.my/data-catalogue/?id=fuelprice");
       const data = await response.json();
 
       if (data && data.length > 0) {
@@ -360,5 +360,6 @@
 </script>
 </body>
 </html>
+
 
 
